@@ -66,9 +66,8 @@ app.get('/', (req, res) => {
 	//CREACION DE TABLA PARA RESULTADOS	
 
 	let HTML = "";
-	HTML+= "<table>";
-		HTML+= "<tr><th>Id</th><th>Name</th><th>Visits</th></tr>";
-
+	HTML+= '<table><tbody class="prueba">';
+		HTML+= '<tr><th>Id</th><th>Name</th><th>Visits</th></tr>';
 
 	Visitor.find(function(err, visitors) {
 	  if (err) return console.error(err);	  
@@ -77,7 +76,7 @@ app.get('/', (req, res) => {
 	  	HTML+= '<tr><td>'+vis["_id"]+'</td><td>'+vis["name"]+'</td><td>'+vis["count"]+'</td></tr>';	  	  	
 	  });
 
-	  HTML+= "</table>";
+	  HTML+= "</tbody></table>";
 	  
 	  res.send(HTML);
 	});	
