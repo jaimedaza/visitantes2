@@ -67,7 +67,7 @@ app.get('/', async (req, res) => {
 
 	let HTML = "";
 	HTML+= '<table><tbody>';
-		HTML+= '<tr><td>Id</td><td>Name</td><td>Visits</td></tr>';
+		HTML+= '<thead><tr><td>Id</td><td>Name</td><td>Visits</td></tr></thead>';
 
 	Visitor.find(function(err, visitors) {
 	  if (err) return console.error(err);	  
