@@ -66,8 +66,8 @@ app.get('/', async (req, res) => {
 	//CREACION DE TABLA PARA RESULTADOS	
 
 	let HTML = "";
-	HTML+= '<table><tbody class="prueba">';
-		HTML+= '<tr><th>Id</th><th>Name</th><th>Visits</th></tr>';
+	HTML+= '<table><tbody>';
+		HTML+= '<tr><td>Id</td><td>Name</td><td>Visits</td></tr>';
 
 	Visitor.find(function(err, visitors) {
 	  if (err) return console.error(err);	  
