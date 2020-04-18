@@ -18,11 +18,11 @@ const schema = new mongoose.Schema({
 
 const Visitor = mongoose.model('Visitor2', schema);
 
-app.get('/', (req, res) => { 
+app.get('/', async (req, res) => { 
 
 	let name2 = req.query.name;	
 
-	Visitor.find({ name: name2 }, function(err, arr) {
+	await Visitor.find({ name: name2 }, function(err, arr) {
 		if(err){
 			return console.log(err);
 
@@ -36,7 +36,7 @@ app.get('/', (req, res) => {
 			});
 
 			person.save(function(error){
-				return console.log(error);				
+				console.log("Error visitor vacio ", error);				
 			});
 
 		//SI NO VIENE NOMBRE O SI ES PRIMERA VEZ DEL VISITANTE
@@ -48,7 +48,7 @@ app.get('/', (req, res) => {
 			});
 
 			person.save(function(error){
-				return console.log(error);				
+				console.log("Error nuevo visitor ", error);				
 			});
 
 		//SI ES UN VISITANTE RECURRENTE
@@ -58,8 +58,8 @@ app.get('/', (req, res) => {
 			  if (err) return console.error(err);
 			});
 
-			console.log(arr);
-			return arr;
+			//console.log(arr);
+			//return arr;
 		}
 	})
 
@@ -80,10 +80,7 @@ app.get('/', (req, res) => {
 	  
 	  res.send(HTML);
 	});	
-	
 
 });
-
-
 
 app.listen(3000, () => console.log('Listening on port 3000!'));
